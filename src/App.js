@@ -1,10 +1,15 @@
 import React from 'react';
-import Navbar from './components/navbar';
+import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import Navbar from './components/nav/Navbar';
+import Profile from './pages/Profile';
 
 const App = () => (
-  <div className="App">
+  <Router>
     <Navbar />
-  </div>
+    <Switch>
+      <Route exact path="/profile" component={Profile} />
+    </Switch>
+  </Router>
 );
 
 export default App;
