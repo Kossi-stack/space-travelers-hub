@@ -3,12 +3,14 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import Navbar from './components/nav/Navbar';
 import Profile from './pages/Profile';
 import Rockets from './pages/Rockets';
+import Missions from './pages/Missions';
 
 const App = () => (
   <Router>
     <Navbar />
     <Switch>
       <Route exact path="/" component={Rockets} />
+      <Route exact path="/missions" component={Missions} />
       <Route exact path="/profile" component={Profile} />
     </Switch>
   </Router>
