@@ -1,0 +1,89 @@
+.container {
+  padding: 2.5rem 7rem;
+
+  &-header {
+    padding: 2rem 7rem;
+  }
+}
+
+.v-divider {
+  border-left: 1px solid $border;
+}
+
+.btn {
+  @include btn(
+    $mono,
+    calc(1rem - 2.5px),
+    $neutral,
+    1rem,
+    300ms,
+    2.5px solid $primary,
+    0.4rem,
+    $primary
+  );
+
+  font-weight: $bold;
+
+  &:hover {
+    border: 2.5px solid $primary;
+    background-color: transparent;
+    color: $primary;
+  }
+}
+
+.btn-gray {
+  @include btn(
+    $mono,
+    0.8rem,
+    rgb(200, 200, 200),
+    1rem,
+    300ms,
+    2.5px solid rgb(200, 200, 200),
+    0.4rem,
+    transparent
+  );
+
+  font-weight: $bold;
+
+  &:hover {
+    background: rgb(200, 200, 200);
+    color: $neutral;
+  }
+}
+
+.btn-red {
+  @include btn(
+    $mono,
+    0.8rem,
+    tomato,
+    1rem,
+    300ms,
+    2.5px solid tomato,
+    0.4rem,
+    transparent
+  );
+
+  font-weight: $bold;
+
+  &:hover {
+    background: tomato;
+    color: $neutral;
+  }
+}
+
+.align-center {
+  text-align: center !important;
+}
+
+.badge {
+  font-size: 0.8rem;
+  font-weight: $bold;
+  padding: 0.3rem 0.5rem;
+  border-radius: 0.5rem;
+  background: gray;
+  color: $neutral;
+
+  &-active {
+    background: lightseagreen;
+  }
+}

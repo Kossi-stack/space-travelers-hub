@@ -1,0 +1,33 @@
+.rockets {
+  color: $secondary;
+}
+
+.rockets-item {
+  @include flexbox();
+
+  border: 1px solid $border;
+  padding: 2rem;
+  gap: 2rem;
+  background: $neutral;
+  border-radius: 1rem;
+  margin-bottom: 2rem;
+
+  #{&}__img {
+    width: 25rem;
+    height: auto;
+    border-radius: 0.5rem;
+  }
+
+  #{&}__desc-h3 {
+    @include font($mono, 1.5rem, $bold);
+
+    margin-bottom: 1rem;
+  }
+
+  #{&}__desc-p {
+    @include font($mono, 1rem, $regular);
+
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+}
