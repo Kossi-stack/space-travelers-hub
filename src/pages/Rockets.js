@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { getRockets } from '../redux/rockets/rockets';
+import RocketItem from '../components/RocketItem';
 
 const Rockets = () => {
   const dispatch = useDispatch();
@@ -9,7 +10,15 @@ const Rockets = () => {
     dispatch(getRockets());
   }, []);
 
-  return <div>{JSON.stringify(rockets)}</div>;
+  return (
+    <main className="container">
+      <ul className="rockets">
+        {rockets.map((rocket) => (
+          <RocketItem key={rocket.id} rocket={rocket} />
+        ))}
+      </ul>
+    </main>
+  );
 };
 
 export default Rockets;
