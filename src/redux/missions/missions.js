@@ -1,32 +1,27 @@
-import getMissions from '../../api/index';
-
-const LOAD_MISSIONS = 'space-travelers-hub/missions/LOAD_MISSIONS';
+import API from '../../api/index';
 
 const initialState = [];
+const GET_MISSIONS = 'missionsStore/missions/GET_MISSIONS';
 
-export const loadMissions = () => async (dispatch) => {
-  const getResult = await getMissions();
-  const missions = getResult.map((mission) => ({
-    id: mission.mission_id,
-    name: mission.mission_name,
-    description: mission.description,
-  }));
+export const getMissions = () => async (dispatch) => {
+  const data = await API.getMissions();
+  console.log('passed', data);
 
-  if (missions) {
+  console.log('missions => ', data);
+
+  if (data) {
     dispatch({
-      type: LOAD_MISSIONS,
-      payload: missions,
+      type: GET_MISSIONS,
+      payload: data,
     });
   }
 };
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
-    case LOAD_MISSIONS:
-      return {
-        ...state,
-        missions: action.payload,
-      };
+    case GET_MISSIONS:
+      return [...state, ...action.payload];
+
     default:
       return state;
   }
