@@ -13,8 +13,8 @@ const Rockets = () => {
   return (
     <main className="container">
       <ul className="rockets">
-        {rockets.map((rocket) => (
-          <RocketItem key={rocket.id} rocket={rocket} />
+        {rockets && rockets.map((rocket) => (
+          <RocketItem rocketProps={rocket} key={rocket.id} />
         ))}
       </ul>
     </main>
