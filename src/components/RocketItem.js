@@ -7,8 +7,8 @@ const RocketItem = (props) => {
   const { rocketProps } = props;
   const dispatch = useDispatch();
 
-  const handleClick = (e) => {
-    dispatch(reserveRocket(e.target.id));
+  const handleClick = () => {
+    dispatch(reserveRocket(rocketProps.id));
   };
 
   return (

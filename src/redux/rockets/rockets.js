@@ -20,7 +20,7 @@ export const getRockets = () => async (dispatch) => {
 
 export const reserveRocket = (id) => ({
   type: RESERVE_ROCKET,
-  id,
+  payload: id,
 });
 
 const reducer = (state = initialState, action) => {
