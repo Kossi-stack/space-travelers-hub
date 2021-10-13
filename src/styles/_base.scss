@@ -65,7 +65,9 @@ $light: 300;
     -ms-flex-direction: column;
     -webkit-flex-direction: column;
     flex-direction: column;
-  } @else {
+  }
+
+  @else {
     -ms-flex-direction: row;
     -webkit-flex-direction: row;
     flex-direction: row;
@@ -75,7 +77,9 @@ $light: 300;
 @mixin justify-content($position) {
   @if $position == space-between {
     justify-content: space-between;
-  } @else if $position == center {
+  }
+
+  @else if $position == center {
     justify-content: center;
   }
 }
@@ -91,11 +95,15 @@ $light: 300;
     @media only screen and (max-width: 50em) {
       @content;
     }
-  } @else if $point == tablet {
+  }
+
+  @else if $point == tablet {
     @media only screen and (max-width: 20em) {
       @content;
     }
-  } @else if $point == mobile {
+  }
+
+  @else if $point == mobile {
     @media only screen and (max-width: 20em) {
       @content;
     }
