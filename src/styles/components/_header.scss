@@ -1,0 +1,51 @@
+.header {
+  @include flexbox();
+  @include justify-content(space-between);
+  @include align-items(center);
+
+  background: $neutral;
+  border-bottom: 1px solid $border;
+
+  #{&}__logo {
+    @include flexbox();
+    @include align-items(center);
+
+    gap: 1rem;
+  }
+
+  #{&}__logo-img {
+    width: 6rem;
+  }
+
+  #{&}__logo-h1 {
+    font-size: 2.3rem;
+    font-weight: $bold;
+  }
+
+  #{&}__nav-ul {
+    @include flexbox();
+
+    list-style-type: none;
+    gap: 2rem;
+  }
+
+  #{&}__nav-a {
+    color: $secondary;
+    text-decoration: none;
+    font-weight: $bold;
+
+    &:hover {
+      border-bottom: 1px solid $primary;
+      color: $primary;
+    }
+  }
+  //   #{&}__nav-a--selected {
+  //     text-decoration: underline;
+  //     color: $primary;
+  //   }
+}
+
+.header__nav-li > .selected {
+  border-bottom: 1px solid $primary;
+  color: $primary;
+}

@@ -13,30 +13,39 @@ const Navbar = () => {
       path: '/missions',
       text: 'Missions',
     },
-    {
-      id: 3,
-      path: '/profile',
-      text: 'My Profile',
-    },
   ];
 
   return (
-    <nav className="nav-bar">
+    <header className="header container-header">
       <Header />
-      <ul className="nav-links">
-        {links.map((link) => (
-          <li key={link.id} className="navink">
+      <nav className="header__nav">
+        <ul className="header__nav-ul">
+          {links.map((link) => (
+            <li key={link.id} className="header__nav-li">
+              <NavLink
+                activeClassName="selected"
+                className="header__nav-a"
+                to={link.path}
+                exact
+              >
+                {link.text}
+              </NavLink>
+            </li>
+          ))}
+          <div className="v-divider" />
+          <li className="header__nav-li">
             <NavLink
-              className="nav-a"
-              to={link.path}
               activeClassName="selected"
+              className="header__nav-a"
+              to="/profile"
+              exact
             >
-              {link.text}
+              My Profile
             </NavLink>
           </li>
-        ))}
-      </ul>
-    </nav>
+        </ul>
+      </nav>
+    </header>
   );
 };
 
