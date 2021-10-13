@@ -1,14 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { reserveRocket } from '../redux/rockets/rockets';
+import {
+  addRocketReservation,
+  cancelRocketReservation,
+} from '../redux/rockets/rockets';
 
 const RocketItem = (props) => {
   const { rocketProps } = props;
   const dispatch = useDispatch();
 
-  const handleClick = () => {
-    dispatch(reserveRocket(rocketProps.id));
+  const handleAddReservation = (e) => {
+    e.preventDefault();
+    dispatch(addRocketReservation(rocketProps.id));
+  };
+
+  const handleCancelReservation = (e) => {
+    e.preventDefault();
+    dispatch(cancelRocketReservation(rocketProps.id));
   };
 
   return (
@@ -21,8 +30,16 @@ const RocketItem = (props) => {
       <div className="rockets-item__desc">
         <h3 className="rockets-item__desc-h3">{rocketProps.rocket_name}</h3>
         <p className="rockets-item__desc-p">{rocketProps.description}</p>
-        <button className="btn" type="button" onClick={handleClick}>
+        <button className="btn" type="button" onClick={handleAddReservation}>
           Reserve Rocket
+        </button>
+
+        <button
+          className="btn-gray"
+          type="button"
+          onClick={handleCancelReservation}
+        >
+          Cancel Reservation
         </button>
       </div>
     </li>

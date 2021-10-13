@@ -1,8 +1,9 @@
 import API from '../../api/index';
 
 const initialState = [];
-const GET_ROCKETS = 'missionsStore/missions/GET_ROCKETS';
-const RESERVE_ROCKET = 'space_travlers_hub/rockets/RESERVE_ROCKET';
+const GET_ROCKETS = 'rocketsStore/rockets/GET_ROCKETS';
+const ADD_ROCKET_RESERVATION = 'rocketsStore/rockets/ADD_ROCKET_RESERVATION';
+const CANCEL_ROCKET_RESERVATION = 'rocketsStore/rockets/CANCEL_ROCKET_RESERVATION';
 
 export const getRockets = () => async (dispatch) => {
   const data = await API.getRockets();
@@ -18,19 +19,33 @@ export const getRockets = () => async (dispatch) => {
   }
 };
 
-export const reserveRocket = (id) => ({
-  type: RESERVE_ROCKET,
-  payload: id,
-});
+export const addRocketReservation = (id) => (dispatch) => {
+  dispatch({
+    type: ADD_ROCKET_RESERVATION,
+    payload: id,
+  });
+};
+
+export const cancelRocketReservation = (id) => (dispatch) => {
+  dispatch({
+    type: CANCEL_ROCKET_RESERVATION,
+    payload: id,
+  });
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ROCKETS:
       return [...state, ...action.payload];
-    case RESERVE_ROCKET:
+    case ADD_ROCKET_RESERVATION:
       return state.map((rocket) => {
-        if (rocket.id !== action.id) return rocket;
+        if (rocket.id !== action.payload) return rocket;
         return { ...rocket, reserved: true };
+      });
+    case CANCEL_ROCKET_RESERVATION:
+      return state.map((rocket) => {
+        if (rocket.id !== action.payload) return rocket;
+        return { ...rocket, reserved: false };
       });
     default:
       return state;
