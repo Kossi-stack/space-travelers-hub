@@ -6,6 +6,7 @@ import MissionItem from '../components/MissionItem';
 const Missions = () => {
   const dispatch = useDispatch();
   const { missions } = useSelector((state) => ({ ...state }));
+
   useEffect(() => {
     dispatch(getMissions());
   }, []);
@@ -22,12 +23,10 @@ const Missions = () => {
           </tr>
         </thead>
         <tbody className="missions__body">
-          {missions && missions.map((mission) => (
-            <MissionItem
-              key={mission.id}
-              mission={mission}
-            />
-          ))}
+          {missions
+            && missions.map((mission) => (
+              <MissionItem key={mission.id} mission={mission} />
+            ))}
         </tbody>
       </table>
     </main>
