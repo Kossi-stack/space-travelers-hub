@@ -21,15 +21,25 @@ const MissionItem = ({ mission }) => {
       <td className="missions_td--bold">{mission.mission_name}</td>
       <td className="missions_td--desc">{mission.description}</td>
       <td className="align-center">
+        {!mission.reserved && (
         <span className="badge">NOT A MEMBER</span>
+        )}
+        {mission.reserved && (
+        <span className="badge">ACTIVE MEMBER</span>
+        )}
       </td>
       <td className="align-center">
+        {!mission.reserved && (
         <button type="button" className="btn-red" onClick={handleJoinMission}>
           Join Mission
         </button>
-        <button type="button" className="btn-red leave-btn" onClick={handleLeaveMission}>
-          Leave Mission
-        </button>
+        )}
+        {mission.reserved && (
+          <button type="button" className="btn-red leave-btn" onClick={handleLeaveMission}>
+            Leave Mission
+          </button>
+        )}
+
       </td>
     </tr>
   );
@@ -40,6 +50,7 @@ MissionItem.propTypes = {
     mission_id: PropTypes.string.isRequired,
     mission_name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    reserved: PropTypes.bool,
   }).isRequired,
 };
 
