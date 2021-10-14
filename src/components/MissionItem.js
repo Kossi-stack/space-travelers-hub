@@ -21,10 +21,10 @@ const MissionItem = ({ mission }) => {
       <td className="missions_td--bold">{mission.mission_name}</td>
       <td className="missions_td--desc">{mission.description}</td>
       <td className="align-center">
-        {mission.reserved && (
+        {!mission.reserved && (
         <span className="badge">NOT A MEMBER</span>
         )}
-        {!mission.reserved && (
+        {mission.reserved && (
         <span className="badge">ACTIVE MEMBER</span>
         )}
       </td>
