@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
-import { joinMission } from '../redux/missions/missions';
+import { joinMission, leaveMission } from '../redux/missions/missions';
 
 const MissionItem = ({ mission }) => {
   const dispatch = useDispatch();
@@ -9,6 +9,11 @@ const MissionItem = ({ mission }) => {
   const handleJoinMission = (e) => {
     e.preventDefault();
     dispatch(joinMission(mission.mission_id));
+  };
+
+  const handleLeaveMission = (e) => {
+    e.preventDefault();
+    dispatch(leaveMission(mission.mission_id));
   };
 
   return (
@@ -21,6 +26,9 @@ const MissionItem = ({ mission }) => {
       <td className="align-center">
         <button type="button" className="btn-red" onClick={handleJoinMission}>
           Join Mission
+        </button>
+        <button type="button" className="btn-red leave-btn" onClick={handleLeaveMission}>
+          Leave Mission
         </button>
       </td>
     </tr>
