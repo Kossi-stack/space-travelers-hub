@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import {
   addRocketReservation,
   cancelRocketReservation,
@@ -9,6 +9,10 @@ import {
 const RocketItem = (props) => {
   const { rocketProps } = props;
   const dispatch = useDispatch();
+  // eslint-disable-next-line max-len
+  const rocket = useSelector(
+    (state) => state.rockets.filter((r) => r.id === rocketProps.id)[0],
+  );
 
   const handleAddReservation = (e) => {
     e.preventDefault();
@@ -29,18 +33,28 @@ const RocketItem = (props) => {
       />
       <div className="rockets-item__desc">
         <h3 className="rockets-item__desc-h3">{rocketProps.rocket_name}</h3>
-        <p className="rockets-item__desc-p">{rocketProps.description}</p>
-        <button className="btn" type="button" onClick={handleAddReservation}>
-          Reserve Rocket
-        </button>
+        <p className="rockets-item__desc-p">
+          {rocket.reserved && (
+            <span className="badge badge-active spacing-right">Reserved</span>
+          )}
+          {rocketProps.description}
+        </p>
 
-        <button
-          className="btn-gray"
-          type="button"
-          onClick={handleCancelReservation}
-        >
-          Cancel Reservation
-        </button>
+        {rocket.reserved && (
+          <button
+            className="btn-gray"
+            type="button"
+            onClick={handleCancelReservation}
+          >
+            Cancel Reservation
+          </button>
+        )}
+
+        {!rocket.reserved && (
+          <button className="btn" type="button" onClick={handleAddReservation}>
+            Reserve Rocket
+          </button>
+        )}
       </div>
     </li>
   );
@@ -51,6 +65,7 @@ RocketItem.propTypes = {
     id: PropTypes.number.isRequired,
     rocket_name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
+    reserved: PropTypes.bool,
     flickr_images: PropTypes.arrayOf(PropTypes.string).isRequired,
   }).isRequired,
 };
