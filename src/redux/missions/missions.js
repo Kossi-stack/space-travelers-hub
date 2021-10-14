@@ -3,6 +3,7 @@ import API from '../../api/index';
 const initialState = [];
 const GET_MISSIONS = 'missionsStore/missions/GET_MISSIONS';
 const JOIN_MISSION = 'space-travelers-hub/missions/JOIN_MISSION';
+const LEAVE_MISSION = 'space-travelers-hub/missions/LEAVE_MISSION';
 
 export const getMissions = () => async (dispatch) => {
   const data = await API.getMissions();
@@ -23,6 +24,11 @@ export const joinMission = (mission) => ({
   payload: mission,
 });
 
+export const leaveMission = (mission) => ({
+  type: LEAVE_MISSION,
+  payload: mission,
+});
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_MISSIONS:
@@ -31,6 +37,11 @@ const reducer = (state = initialState, action) => {
       return state.map((missions) => {
         if (missions.id !== action.id) return missions;
         return { ...missions, reserved: true };
+      });
+    case LEAVE_MISSION:
+      return state.map((missions) => {
+        if (missions.id !== action.id) return missions;
+        return { ...missions, reserved: false };
       });
     default:
       return state;
