@@ -1,6 +1,5 @@
-import React from 'react';
 import PropTypes from 'prop-types';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import {
   addRocketReservation,
   cancelRocketReservation,
@@ -10,9 +9,6 @@ const RocketItem = (props) => {
   const { rocketProps } = props;
   const dispatch = useDispatch();
   // eslint-disable-next-line max-len
-  const rocket = useSelector(
-    (state) => state.rockets.filter((r) => r.id === rocketProps.id)[0],
-  );
 
   const handleAddReservation = (e) => {
     e.preventDefault();
@@ -34,13 +30,15 @@ const RocketItem = (props) => {
       <div className="rockets-item__desc">
         <h3 className="rockets-item__desc-h3">{rocketProps.rocket_name}</h3>
         <p className="rockets-item__desc-p">
-          {rocket.reserved && (
+          {rocketProps.reserved ? (
             <span className="badge badge-active spacing-right">Reserved</span>
+          ) : (
+            ''
           )}
           {rocketProps.description}
         </p>
 
-        {rocket.reserved && (
+        {rocketProps.reserved && (
           <button
             className="btn-gray"
             type="button"
@@ -50,7 +48,7 @@ const RocketItem = (props) => {
           </button>
         )}
 
-        {!rocket.reserved && (
+        {!rocketProps.reserved && (
           <button className="btn" type="button" onClick={handleAddReservation}>
             Reserve Rocket
           </button>

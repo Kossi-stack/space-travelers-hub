@@ -1,21 +1,16 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { getRockets } from '../redux/rockets/rockets';
+import { useSelector } from 'react-redux';
 import RocketItem from '../components/RocketItem';
 
 const Rockets = () => {
-  const dispatch = useDispatch();
-  const { rockets } = useSelector((state) => ({ ...state }));
-  useEffect(() => {
-    dispatch(getRockets());
-  }, []);
+  const rockets = useSelector((state) => state.rockets);
 
   return (
     <main className="container">
       <ul className="rockets">
-        {rockets && rockets.map((rocket) => (
-          <RocketItem rocketProps={rocket} key={rocket.id} />
-        ))}
+        {rockets
+          && rockets.map((rocket) => (
+            <RocketItem rocketProps={rocket} key={rocket.id} />
+          ))}
       </ul>
     </main>
   );

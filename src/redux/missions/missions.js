@@ -36,10 +36,7 @@ export const leaveMission = (mission) => (dispatch) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_MISSIONS:
-      if (state.missions) {
-        return state.missions;
-      }
-      return [...state, ...action.payload];
+      return [...action.payload];
 
     case JOIN_MISSION:
       return state.map((missions) => {

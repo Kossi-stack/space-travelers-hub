@@ -36,7 +36,7 @@ export const cancelRocketReservation = (id) => (dispatch) => {
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case GET_ROCKETS:
-      return [...state, ...action.payload];
+      return [...action.payload];
     case ADD_ROCKET_RESERVATION:
       return state.map((rocket) => {
         if (rocket.id !== action.payload) return rocket;
