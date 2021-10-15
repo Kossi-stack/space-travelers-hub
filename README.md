@@ -23,7 +23,7 @@
 
 ## 📡 Live Demo
 
-[Link to Live Demo](http://yaseerokino.github.io/space-travelers-hub)
+[Link to Live Demo](https://space-travelers-hub-okinoo.netlify.app)
 
 ## 🧰 Tools
 
