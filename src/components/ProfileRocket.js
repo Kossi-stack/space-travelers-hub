@@ -1,14 +1,14 @@
 import PropTypes from 'prop-types';
 
 const ProfileRocket = ({ rockets }) => (
-  <li key={rockets.rocket_id} className="profile__li">
+  <li key={rockets.id} className="profile__li">
     {rockets.rocket_name}
   </li>
 );
 
 ProfileRocket.propTypes = {
   rockets: PropTypes.shape({
-    rocket_id: PropTypes.string.isRequired,
+    id: PropTypes.number.isRequired,
     rocket_name: PropTypes.string.isRequired,
     description: PropTypes.string.isRequired,
     reserved: PropTypes.bool,

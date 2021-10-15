@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Navbar Component correctly 1`] = `
+<header
+  className="header container-header"
+>
+  <div
+    className="header__logo"
+  >
+    <img
+      alt="logo"
+      className="header__logo-img"
+      src="planet.png"
+    />
+    <h1
+      className="header__logo-h1"
+    >
+      Space Traveler's Hub
+    </h1>
+  </div>
+  <nav
+    className="header__nav"
+  >
+    <ul
+      className="header__nav-ul"
+    >
+      <li
+        className="header__nav-li"
+      >
+        <a
+          aria-current="page"
+          className="header__nav-a selected"
+          href="/"
+          onClick={[Function]}
+          style={Object {}}
+        >
+          Rockets
+        </a>
+      </li>
+      <li
+        className="header__nav-li"
+      >
+        <a
+          aria-current={null}
+          className="header__nav-a"
+          href="/missions"
+          onClick={[Function]}
+        >
+          Missions
+        </a>
+      </li>
+      <div
+        className="v-divider"
+      />
+      <li
+        className="header__nav-li"
+      >
+        <a
+          aria-current={null}
+          className="header__nav-a"
+          href="/profile"
+          onClick={[Function]}
+        >
+          My Profile
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+`;

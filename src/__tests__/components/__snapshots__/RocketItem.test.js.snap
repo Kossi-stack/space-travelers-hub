@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders rocket item correctly 1`] = `
+<li
+  className="rockets-item"
+>
+  <img
+    alt="img"
+    className="rockets-item__img"
+    src="https://imgur.com/DaCfMsj.jpg"
+  />
+  <div
+    className="rockets-item__desc"
+  >
+    <h3
+      className="rockets-item__desc-h3"
+    >
+      falcon 1
+    </h3>
+    <p
+      className="rockets-item__desc-p"
+    >
+      <span
+        className="badge badge-active spacing-right"
+      >
+        Reserved
+      </span>
+      some description
+    </p>
+    <button
+      className="btn-gray"
+      onClick={[Function]}
+      type="button"
+    >
+      Cancel Reservation
+    </button>
+  </div>
+</li>
+`;

@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders rocket item correctly 1`] = `
+<tr>
+  <td
+    className="missions_td--bold"
+  >
+    Thiacom
+  </td>
+  <td
+    className="missions_td--desc"
+  >
+    some description
+  </td>
+  <td
+    className="align-center"
+  >
+    <span
+      className="badge"
+    >
+      NOT A MEMBER
+    </span>
+  </td>
+  <td
+    className="align-center"
+  >
+    <button
+      className="btn-red"
+      onClick={[Function]}
+      type="button"
+    >
+      Join Mission
+    </button>
+  </td>
+</tr>
+`;
