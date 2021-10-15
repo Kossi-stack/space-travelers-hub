@@ -2,7 +2,7 @@
 
 # Space Travelers Hub
 
-> Project Description
+> A Redux based application that allow users to book rockets and join selected space missions.
 
 <!-- ![](screenshot.png) -->
 
@@ -19,6 +19,7 @@
 `Library`
 
 - React
+- Redux
 
 ## 📡 Live Demo
 
