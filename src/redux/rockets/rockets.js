@@ -15,19 +15,15 @@ export const getRockets = () => async (dispatch) => {
   }
 };
 
-export const addRocketReservation = (id) => (dispatch) => {
-  dispatch({
-    type: ADD_ROCKET_RESERVATION,
-    payload: id,
-  });
-};
+export const addRocketReservation = (id) => ({
+  type: ADD_ROCKET_RESERVATION,
+  payload: id,
+});
 
-export const cancelRocketReservation = (id) => (dispatch) => {
-  dispatch({
-    type: CANCEL_ROCKET_RESERVATION,
-    payload: id,
-  });
-};
+export const cancelRocketReservation = (id) => ({
+  type: CANCEL_ROCKET_RESERVATION,
+  payload: id,
+});
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
