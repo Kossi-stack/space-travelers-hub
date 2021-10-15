@@ -4,7 +4,7 @@
 
 > A Redux based application that allow users to book rockets and join selected space missions.
 
-<!-- ![](screenshot.png) -->
+![](screenshot.png)
 
 **Additional description about the project and its features.**
 
