@@ -7,10 +7,6 @@ const CANCEL_ROCKET_RESERVATION = 'rocketsStore/rockets/CANCEL_ROCKET_RESERVATIO
 
 export const getRockets = () => async (dispatch) => {
   const data = await API.getRockets();
-  console.log('passed', data);
-
-  console.log('rockets => ', data);
-
   if (data) {
     dispatch({
       type: GET_ROCKETS,

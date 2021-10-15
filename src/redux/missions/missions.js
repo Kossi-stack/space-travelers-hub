@@ -7,10 +7,6 @@ const LEAVE_MISSION = 'space-travelers-hub/missions/LEAVE_MISSION';
 
 export const getMissions = () => async (dispatch) => {
   const data = await API.getMissions();
-  console.log('passed', data);
-
-  console.log('missions => ', data);
-
   if (data) {
     dispatch({
       type: GET_MISSIONS,

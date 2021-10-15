@@ -6,20 +6,18 @@ const API = {
   getMissions: async () => {
     try {
       const response = await axios.get(`${END_POINT}/missions`);
-      console.log(response.data);
+
       return response.data;
     } catch (error) {
-      console.log(error);
       return error;
     }
   },
   getRockets: async () => {
     try {
       const response = await axios.get(`${END_POINT}/rockets`);
-      console.log(response.data);
+
       return response.data;
     } catch (error) {
-      console.log(error);
       return error;
     }
   },
